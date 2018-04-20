@@ -6,18 +6,17 @@
 -->
 
 <ion-content padding>
-  <form (ngSubmit)="saveRecord()">
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input [(ngModel)]="people.nome"></ion-input>
+      <ion-input></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Sobrenome</ion-label>
-      <ion-input [(ngModel)]="people.sobrenome"></ion-input>
+      <ion-input></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Data de Nascimento</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthday"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label floating>Peso</ion-label>
@@ -29,12 +28,11 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="email"></ion-input>
+      <ion-input type="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Senha</ion-label>
-      <ion-input type="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
-    <button ion-button (click)="saveRecord()">Registrar</button>
-  </form>
+    <button ion-button (click)="register(user)">Registrar</button>
 </ion-content>
