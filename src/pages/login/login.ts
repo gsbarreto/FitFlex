@@ -24,7 +24,18 @@ export class LoginPage {
 
   async login(user: User){
     try{
-      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password);
+      const result = this.afAuth.auth.signInWithEmailAndPassword(user.email,user.password)
+      .catch(function(e){
+          switch(e.code){
+            case 'auth/invalid-email':{
+              this.toastCtrl.create({
+                message: "Error",
+                duration: 3000
+              }).present();
+              break;
+            }
+          }
+      });
       if(result){
         this.navCtrl.push(TabsPage);
       }
@@ -40,11 +51,7 @@ export class LoginPage {
           break;
         }
         //Não está funcionando, não entra no switch. Provavelmente não está no catch certo;
-        case 'auth/invalid-email':{
-          console.log('entrou');
-          this.toastCreate('O campo email não está preenchido corretamente.');
-          break;
-        }
+        
         default:{
           this.toastCreate('Ocorreu um erro por favor contate um administrador.');
           break;

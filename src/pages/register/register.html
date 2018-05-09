@@ -8,23 +8,23 @@
 <ion-content padding>
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="user.firstName"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Sobrenome</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="user.lastName"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Data de Nascimento</ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthDay"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label floating>Peso</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="user.weight"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Altura</ion-label>
-      <ion-input></ion-input>
+      <ion-input [(ngModel)]="user.height"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Email</ion-label>
