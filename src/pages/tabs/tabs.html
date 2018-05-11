@@ -1,5 +1,5 @@
 <ion-tabs>
-  <ion-tab [root]="tab1Root" tabTitle="Populares" tabIcon="star"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Buscar" tabIcon="search"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Perfil" tabIcon="contact"></ion-tab>
+  <ion-tab [root]="tab1Root" [rootParams]="user" tabTitle="Populares" tabIcon="star"></ion-tab>
+  <ion-tab [root]="tab2Root" [rootParams]="user" tabTitle="Buscar" tabIcon="search"></ion-tab>
+  <ion-tab [root]="tab3Root" [rootParams]="user" tabTitle="Perfil" tabIcon="contact"></ion-tab>
 </ion-tabs>

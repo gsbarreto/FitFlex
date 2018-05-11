@@ -18,6 +18,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TabsPage {
   user = {} as User; 
+  profileData: Observable<any>;
   url_api = 'users/';
 
 
@@ -31,7 +32,7 @@ export class TabsPage {
         firebaseDatabase.ref(this.url_api+data.uid).once('value').then(
           (res) => {
             this.user = res.val();
-            this.disparaToast();
+            this.criaToast('Bem vindo ' + this.user.firstName + ' ' + this.user.lastName + '!');
           }
         );
       }else{
@@ -39,13 +40,14 @@ export class TabsPage {
           message: `Não encontramos informações de login!`,
           duration: 3000
         }).present();
+        this.profileData = afDatabase.object(`users/${data.uid}`).valueChanges();
       }
     });
   }
 
-  disparaToast(){
+  criaToast(msg:string){
     this.toastCtrl.create({
-      message: 'Bem vindo ' + this.user.firstName + ' ' + this.user.lastName + '!',
+      message: msg,
       duration: 3000,
       position: 'top'
     }).present();
