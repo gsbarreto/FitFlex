@@ -5,15 +5,29 @@
   Ionic pages and navigation.
 -->
 
-<ion-content padding>
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email" [(ngModel)]="user.email"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating >Senha</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
-  <button ion-button (click)="login(user)">Logar</button>
-  <button ion-button color="light" (click)="registrar()">Registrar</button>
+<ion-content padding class="page-login">
+  <ion-grid>
+    <ion-row>
+      <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+      </ion-item>
+    </ion-row>
+    
+    <ion-row>
+      <ion-item>
+        <ion-label floating >Senha</ion-label>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+      </ion-item>
+    </ion-row>
+    
+    <ion-row align-self-center class="btn-login">
+      <ion-col>
+        <button ion-button (click)="login(user)">Logar</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="light" (click)="registrar()">Registrar</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

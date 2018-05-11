@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { firebaseDatabase } from '../../app/app.firebase.config';
+import { Treino } from '../../models/treino';
 
 /**
- * Generated class for the PerfilPage page.
+ * Generated class for the CadastroTreinoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,16 +11,17 @@ import { firebaseDatabase } from '../../app/app.firebase.config';
 
 @IonicPage()
 @Component({
-  selector: 'page-perfil',
-  templateUrl: 'perfil.html',
+  selector: 'page-cadastro-treino',
+  templateUrl: 'cadastro-treino.html',
 })
-export class PerfilPage {
+export class CadastroTreinoPage {
+  treino = {} as Treino;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    
+    console.log('ionViewDidLoad CadastroTreinoPage');
   }
 
 }

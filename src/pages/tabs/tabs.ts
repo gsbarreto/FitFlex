@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
 
 import { AboutPage } from '../about/about';
-import { HomePage } from '../home/home';
 import { PerfilPage } from '../perfil/perfil';
 
 
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { ToastController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { firebaseDatabase } from '../../app/app.firebase.config';
+import { PopularesPage } from '../populares/populares';
+import { BuscaPage } from '../busca/busca';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -18,26 +21,19 @@ export class TabsPage {
   url_api = 'users/';
 
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
+  tab1Root = PopularesPage;
+  tab2Root = BuscaPage;
   tab3Root = PerfilPage;
 
-  constructor(private afAuth:AngularFireAuth, private toastCtrl: ToastController) {   
+  constructor(private afAuth:AngularFireAuth, private afDatabase:AngularFireDatabase, private toastCtrl: ToastController) {   
     this.afAuth.authState.subscribe(data => {
       if(data && data.email && data.uid){
         firebaseDatabase.ref(this.url_api+data.uid).once('value').then(
           (res) => {
             this.user = res.val();
-            console.log(this.user);
+            this.disparaToast();
           }
         );
-
-        this.toastCtrl.create({
-          message: 'Bem vindo ' + this.user.firstName + ' ' + this.user.lastName + '!',
-          duration: 3000,
-          position: 'top'
-        }).present();
-        
       }else{
         this.toastCtrl.create({
           message: `Não encontramos informações de login!`,
@@ -46,4 +42,13 @@ export class TabsPage {
       }
     });
   }
+
+  disparaToast(){
+    this.toastCtrl.create({
+      message: 'Bem vindo ' + this.user.firstName + ' ' + this.user.lastName + '!',
+      duration: 3000,
+      position: 'top'
+    }).present();
+  }
 }
+

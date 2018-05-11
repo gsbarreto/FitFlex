@@ -70,8 +70,11 @@ export class RegisterPage {
     }
   }
 
+  cancelar(){
+    this.navCtrl.pop();
+  }
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
   }
 
 }

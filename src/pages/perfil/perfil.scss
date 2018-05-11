@@ -1,3 +1,26 @@
-page-perfil {
+.page-perfil {
+    h1{
+        margin-top: 10px; 
+        margin-bottom: 5px;
+        text-align: center;
+    }
 
+    h2{
+        text-align: center;    
+    }
+
+    .sub-title {
+        background-color: #488aff;
+        color: #FFF;
+        margin-top:7px;
+        padding-left: 8px;
+    }
+    .sub-title h2{
+        margin-top: 10px;
+    }
+    
+    p {
+        margin: 5px;
+    }    
 }
+
