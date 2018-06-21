@@ -7,32 +7,56 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Cadastrar Treino</ion-title>
+    <ion-title>{{botao}} Treino</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-grid>
     <ion-row>
       <ion-item>
         <ion-label floating>Nome do treino</ion-label>
         <ion-input type="text" [(ngModel)]="treino.nome"></ion-input>
       </ion-item>
-    </ion-row>
-
-    <ion-row>
       <ion-item>
         <ion-label floating>Descrição</ion-label>
         <ion-input type="text" [(ngModel)]="treino.descricao"></ion-input>
       </ion-item>
     </ion-row>
-
+  
+    <div class="container">
+        <ion-label>Categorias</ion-label>
+        <ion-list>
+          <ion-item>
+            <ion-label>Peito</ion-label>
+            <ion-checkbox [(ngModel)]="peito"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Costas</ion-label>
+            <ion-checkbox [(ngModel)]="costas"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Abdomen</ion-label>
+            <ion-checkbox [(ngModel)]="abdomen"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pernas</ion-label>
+            <ion-checkbox [(ngModel)]="pernas"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Triceps</ion-label>
+            <ion-checkbox [(ngModel)]="triceps"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </div>
+    <div class="container">
+      <ion-label>Método de treino</ion-label>
+      <textarea class="area" [(ngModel)]="treino.explicacao"></textarea>
+    </div>
     <ion-row>
         <ion-col>
-          <button ion-button (click)="criarTreino()">Criar</button>
+          <button ion-button (click)="criaTreino()">{{botao}}</button>
         </ion-col>
       </ion-row>
-  </ion-grid>
 </ion-content>

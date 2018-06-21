@@ -37,7 +37,7 @@ export class LoginPage {
           }
       });
       if(result){
-        this.navCtrl.push(TabsPage);
+        this.navCtrl.setRoot(TabsPage);
       }
     }catch(e){
       console.log(e.code);

@@ -1,5 +1,8 @@
 export interface Treino{
     nome:string,
     likes:number,
-    descricao:string
+    descricao:string,
+    categorias:string,
+    explicacao:string,
+    key:string
 }

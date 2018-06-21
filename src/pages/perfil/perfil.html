@@ -15,35 +15,25 @@
 
 <ion-content>
   <ion-grid class="page-perfil">
-      <h1>Olá {{(user)?.firstName}} {{(user)?.lastName}}!</h1>
-      <h2>Pronto para o treino?</h2>
-      <div class="sub-title">
-        <h2>Informações</h2>
-      </div>
-      
-      <p>Nome: {{(user)?.firstName}} {{(user)?.lastName}}</p>
-      <p>Data de Nascimento: {{(user)?.birthDay}}</p>
-      <p>Peso: {{(user)?.weight}} Kgs</p>
-      <p>Altura: {{(user)?.height}} m</p>
-      <p>IMC: {{imc}}</p>
-      
-      <div class="sub-title">
-          <h2>Meus treinos</h2>
-        </div>
-      <ion-card>
-        <ion-card-header>
-          Treino de Pernas
-        </ion-card-header>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          Treino de Biceps
-        </ion-card-header>
-      </ion-card>
-      <ion-card>
-        <ion-card-header>
-          Treino de Costas
-        </ion-card-header>
-      </ion-card>
+    <h1>Olá {{(user)?.firstName}} {{(user)?.lastName}}!</h1>
+    <h2>Pronto para o treino?</h2>
+    <div class="sub-title">
+      <h2>Informações</h2>
+    </div>
+
+    <p>Nome: {{(user)?.firstName}} {{(user)?.lastName}}</p>
+    <p>Data de Nascimento: {{(user)?.birthDay}}</p>
+    <p>Peso: {{(user)?.weight}} Kgs</p>
+    <p>Altura: {{(user)?.height}} m</p>
+    <p>IMC: {{imc}}</p>
+
+    <div class="sub-title">
+      <h2>Meus treinos</h2>
+    </div>
+    <ion-card *ngFor="let treino of treinos" (click)="verTreino(treino)">
+      <ion-card-header>
+        {{treino?.nome}}
+      </ion-card-header>
+    </ion-card>
   </ion-grid>
 </ion-content>

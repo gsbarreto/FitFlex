@@ -18,6 +18,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { PopularesPage } from '../pages/populares/populares';
 import { BuscaPage } from '../pages/busca/busca';
 import { CadastroTreinoPage } from '../pages/cadastro-treino/cadastro-treino';
+import { TreinoPage } from '../pages/treino/treino';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CadastroTreinoPage } from '../pages/cadastro-treino/cadastro-treino';
     PerfilPage,
     PopularesPage,
     BuscaPage,
-    CadastroTreinoPage
+    CadastroTreinoPage,
+    TreinoPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { CadastroTreinoPage } from '../pages/cadastro-treino/cadastro-treino';
     PerfilPage,
     PopularesPage,
     BuscaPage,
-    CadastroTreinoPage
+    CadastroTreinoPage,
+    TreinoPage
   ],
   providers: [
     StatusBar,
