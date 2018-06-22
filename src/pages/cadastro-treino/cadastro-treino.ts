@@ -108,11 +108,16 @@ export class CadastroTreinoPage {
     });
     loading.present();
     this.verificaPressionados();
+    let cat = this.resultado.substr(0, (this.resultado.length - 2));
+    this.treino.categorias = cat;
+    if(!(this.navParams.get("operacao") == 'update')){
+      this.treino.likes = 0;
+    }
     let body = {
       nome_treino: this.treino.nome,
       descricao: this.treino.descricao,
-      likes: 0,
-      categorias: this.resultado,
+      likes: this.treino.likes,
+      categorias: this.treino.categorias,
       explicacao: this.treino.explicacao,
       criador: this.uid,
       key: ''

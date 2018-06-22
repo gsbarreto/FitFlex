@@ -28,7 +28,7 @@
     </div>
     <p>{{(treino)?.explicacao}}</p>
 
-    <ion-row>
+    <ion-row *ngIf="opeditar == true">
       <div class="botoes">
         <button ion-button (click)="editar()">Editar</button>
         <button ion-button color="danger" (click)="deletar()">Deletar</button>

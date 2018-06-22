@@ -4,5 +4,6 @@ export interface Treino{
     descricao:string,
     categorias:string,
     explicacao:string,
-    key:string
+    key:string,
+    criador:string
 }

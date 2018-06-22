@@ -6,5 +6,6 @@ export interface User{
     height: number,
     firstName: string,
     lastName: string,
+    profissao:string,
     uid:string
 }

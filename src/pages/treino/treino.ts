@@ -22,6 +22,7 @@ export class TreinoPage {
   treino = {} as Treino;
   url_api:string = 'treinos/';
   cat: string;
+  opeditar:boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl:ToastController) {
     
   }
@@ -33,6 +34,9 @@ export class TreinoPage {
     this.treino.explicacao = this.navParams.get("explicacao");
     this.treino.categorias = this.navParams.get("categorias");
     this.treino.key = this.navParams.get("key");
+    if(this.navParams.get("opcao") == 'ver'){
+      this.opeditar = false;
+    }
     let cat = this.treino.categorias.substr(0, (this.treino.categorias.length - 2));
     this.treino.categorias = cat;
   }

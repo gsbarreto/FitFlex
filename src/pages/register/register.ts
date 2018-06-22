@@ -32,6 +32,7 @@ export class RegisterPage {
         firstName: this.user.firstName,
         lastName: this.user.lastName,
         birthDay: this.user.birthDay,
+        profissao: this.user.profissao,
         weight: this.user.weight,
         height: this.user.height,
         uid: result.uid
