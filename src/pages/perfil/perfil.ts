@@ -4,6 +4,7 @@ import { firebaseDatabase } from '../../app/app.firebase.config';
 import { User } from '../../models/user';
 import { Treino } from '../../models/treino';
 import { TreinoPage } from '../treino/treino';
+import { AlterarFotoPage } from '../alterar-foto/alterar-foto';
 
 /**
  * Generated class for the PerfilPage page.
@@ -22,6 +23,7 @@ export class PerfilPage {
   imc:number;
   url_api:string = 'treinos/';
   treinos: Array<Treino> = [];
+  base64_image: string;
   
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -54,6 +56,12 @@ export class PerfilPage {
       categorias:obj.categorias,
       explicacao:obj.explicacao,
       key:obj.key
+    });
+  }
+
+  alterarFoto(){
+    this.navCtrl.push(AlterarFotoPage,{
+      uid: this.user.uid
     });
   }
 }

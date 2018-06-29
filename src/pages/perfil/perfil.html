@@ -20,7 +20,7 @@
     <div class="sub-title">
       <h2>Foto</h2>
     </div>
-
+    <img [src]="(user)?.foto" *ngIf="(user)?.foto" class="foto" (click)="alterarFoto()" />
     <div class="sub-title">
       <h2>Informações</h2>
     </div>

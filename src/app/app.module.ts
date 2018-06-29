@@ -10,6 +10,7 @@ import { AboutPage } from '../pages/about/about';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { Camera } from '@ionic-native/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +20,7 @@ import { PopularesPage } from '../pages/populares/populares';
 import { BuscaPage } from '../pages/busca/busca';
 import { CadastroTreinoPage } from '../pages/cadastro-treino/cadastro-treino';
 import { TreinoPage } from '../pages/treino/treino';
+import { AlterarFotoPage } from '../pages/alterar-foto/alterar-foto';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { TreinoPage } from '../pages/treino/treino';
     PopularesPage,
     BuscaPage,
     CadastroTreinoPage,
-    TreinoPage
+    TreinoPage,
+    AlterarFotoPage
   ],
   imports: [
     BrowserModule,
@@ -51,11 +54,13 @@ import { TreinoPage } from '../pages/treino/treino';
     PopularesPage,
     BuscaPage,
     CadastroTreinoPage,
-    TreinoPage
+    TreinoPage,
+    AlterarFotoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

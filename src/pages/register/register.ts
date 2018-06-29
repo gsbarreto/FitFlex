@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { User } from '../../models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseDatabase } from '../../app/app.firebase.config';
+import { Camera } from '@ionic-native/camera';
 /**
  * Generated class for the RegisterPage page.
  *
@@ -20,7 +21,7 @@ export class RegisterPage {
 
   public url_api = "users/";
 
-  constructor(private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public toastCtrl: ToastController) {
+  constructor(private camera:Camera,private loadingCtrl:LoadingController,private afAuth: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,public toastCtrl: ToastController) {
   }
 
   async register(user: User){
@@ -35,7 +36,8 @@ export class RegisterPage {
         profissao: this.user.profissao,
         weight: this.user.weight,
         height: this.user.height,
-        uid: result.uid
+        uid: result.uid,
+        foto: this.user.foto
       };
       
       firebaseDatabase.ref(this.url_api).child(result.uid).set(body).then(
@@ -73,6 +75,41 @@ export class RegisterPage {
 
   cancelar(){
     this.navCtrl.pop();
+  }
+
+  capturaFoto(captura){
+    let foto;
+
+    if(captura == true){
+      foto = this.camera.PictureSourceType.CAMERA;
+			console.log("Foto da câmera: " + foto);
+    }else{
+      foto = this.camera.PictureSourceType.PHOTOLIBRARY;
+			console.log("Foto da galeria: " + foto);
+    }
+    
+    this.camera.getPicture({
+			sourceType: foto,
+	        destinationType: this.camera.DestinationType.DATA_URL,
+	        targetWidth: 1000,
+	        targetHeight: 1000
+	    }).then((imageData) => {
+        this.user.foto = "data:image/jpeg;base64," + imageData;
+        let toast = this.toastCtrl.create({
+          message: 'Foto capturada com sucesso!',
+          duration: 1500,
+          position: 'top'
+			  }).present();
+	    }, (err) => {
+        this.user.foto = '';
+	    	let toast = this.toastCtrl.create({
+          message: 'Erro ao tentar capturar foto.',
+          duration: 1500,
+          position: 'top'
+			  }).present();
+	    console.log(err);
+      });
+
   }
 
   ionViewDidLoad() {

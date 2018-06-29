@@ -5,7 +5,6 @@ import { Treino } from '../../models/treino';
 import { firebaseDatabase } from '../../app/app.firebase.config';
 import { User } from '../../models/user';
 import { TreinoPage } from '../treino/treino';
-
 /**
  * Generated class for the PopularesPage page.
  *
@@ -18,16 +17,27 @@ import { TreinoPage } from '../treino/treino';
   selector: 'page-populares',
   templateUrl: 'populares.html',
 })
+
+
+
 export class PopularesPage {
   treinos: Array<Treino> = [];
   treinos_invertido: Array<Treino> = [];
   criadores: Array<User> = [];
   url_api: string = 'treinos/';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  confirmaReload:boolean = false;
   
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.confirmaReload = true;
+    this.inicializaTreinos();
   }
 
-  ionViewWillEnter() {
+  ionViewWillEnter(){
+    this.treinos = [];
+    this.inicializaTreinos();
+  }
+  
+  inicializaTreinos(){
     this.treinos = [];
     this.treinos_invertido = [];
     this.criadores = [];
@@ -81,6 +91,10 @@ export class PopularesPage {
       key:obj.key,
       opcao:'ver'
     });
+  }
+
+  foto(obj:User){
+    console.log(obj.foto);
   }
 
 }

@@ -7,5 +7,6 @@ export interface User{
     firstName: string,
     lastName: string,
     profissao:string,
-    uid:string
+    uid:string,
+    foto:string
 }
